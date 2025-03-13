@@ -12,9 +12,13 @@
     @if($nbArticles == 0)
         <p>Il n'y aucun article</p>
     @else
-        <article>Article 1</article>
-        <article>Article 2</article>
-        <article>Article 3</article>
+        <ul>
+            @foreach ($articles as $article)
+                <li>
+                    <a href="/article/{{ $article->id }}">{{ $article->title }} {{ $article->views }} vues</a>
+                </li> 
+            @endforeach
+        </ul>
     @endif
 
     <a href="/">Retour</a>
