@@ -7,6 +7,7 @@ Route::get('/', function () {
 });
 
 Route::get('/articles', function () {
+    $articles = ["Article 1", "Article 2", "Article 3", "Article 4"];
     $nbArticles = 3;
     $context = [
         'nbArticles' => $nbArticles, 
