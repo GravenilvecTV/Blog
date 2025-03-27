@@ -1,24 +1,18 @@
 <?php
 
-use App\Models\Post;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/article/{id}', function (string $id) {
-    $article = Post::find($id);
-    return view('article', ['article' => $article]);
-});
+// recuperer la page pour ecrire un nouvel article (get)
+Route::get('/add', [PostController::class, 'add_article']);
 
-Route::get('/articles', function () {
-    $articles = Post::all();
-    $nbArticles = count($articles);
-    $context = [
-        'articles' => $articles,
-        'nbArticles' => $nbArticles, 
-        'nomBlog' => 'Blogito'
-    ];
-    return view('articles', $context);
-});
+// envoyer les données du formulaire au site (post)
+Route::post('/form', [PostController::class, 'send_form']);
+
+Route::get('/article/{id}', [PostController::class, 'show_one_article']);
+
+Route::get('/articles', [PostController::class, 'show_articles']);

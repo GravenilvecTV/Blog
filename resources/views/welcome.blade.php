@@ -9,6 +9,7 @@
     <h1>Blog</h1>
     <p>Bienvenue mon blog</p>
 
+    <a href="/add">Ajouter un article</a>
     <a href="/articles">Voir les articles</a>
 </body>
 </html>

@@ -9,4 +9,10 @@ class Post extends Model
 {
     /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
+
+    // une option pour autoriser certains champs
+    protected $fillable = [
+        'title',
+        'content'
+    ];
 }
